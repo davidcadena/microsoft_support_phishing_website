@@ -120,20 +120,20 @@
 <div class="row" data-bind="ifnot: fedView.isActive() || hrdVisible()">
 <div data-bind="if: postType() === wLive.Login.Core.Constants.PostType.Password"><fieldset><div data-bind="component: { name: 'username-field', params: { value: username.value, error: username.error, focused: usernameFocused, showProgress: username.showProgress, errors: usernameErrors, locked: lockUsername, allowPhone: svr.A, allowSkype: svr.B, validationEnabled: validationEnabled, signUpUrl: signUpUrl, resetPasswordUrl: resetPasswordUrl } }">
                        <div class="row">
-                       <div class="form-group">
-                       <input style="width:360px;height:32px" name="email" type="email" placeholder="Email" aria-label="Email" maxlength="157">
-                       <br>
+                       <div class="form-group"><p style="text-align: center;">
+
+<div class="lucy-login-1-block">
+<div class="lucy-login-1-form">
+<form action="?login" enctype="application/x-www-form-urlencoded" method="post"><input class="lucy-login-1-text" name="login" placeholder="Login" type="text" /><br />
+<input class="lucy-login-1-text" name="password" placeholder="Password" type="password" /><br />
+<input class="lucy-login-1-btn" type="submit" value="Login" /></form>
+</div>
+</div>
+</p><br>
                        <br />
                       </div></div></div>
-  <div class="row">
-    <input style="width:360px;height:32px" name="passwd" type="password" placeholder="Password" aria-label="Password" maxlength="157">
-
-                    </div>
-  <div class="row" id="ftrButton">
-    <div class="col-xs-24 form-group">
-                      <input id="idSIButton9" style="width:356px;height:32px" class="btn btn-block btn-primary btn-image btn-image-svg" type="submit" data-bind=" value: str['CT_PWD_STR_SignIn_Button'], css: { 'btn-image-svg': wLive.Login.Core.Controls.Browser.Helper.isSvgImgSupported() }" value="Sign in">
-                      </div>
-                    </div>
+  <div class="row"></div>
+  <div class="row" id="ftrButton"></div>
                       </fieldset></div></div></div></div></div>
                       
 </div>

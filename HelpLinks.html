@@ -1,0 +1,10 @@
+<div class="container quick-nav" ng-class="{'home' : displayAllContent && !errorStatus, 'other' : !displayAllContent || errorStatus}">
+    <div class="row">
+        <div class="help-link" ng-repeat="quickNavLink in view.quickNavLinks">
+            <a href ng-attr-id="{{quickNavLink.key}}" ng-href="{{ (quickNavLink.key + '/') == quickNavLink.link.linkUrl ? '#' : quickNavLink.link.linkUrl}}" ng-click="linkClick($event, quickNavLink.key)" target="_self">
+                <span class="win-icon" aria-hidden="true">{{quickNavLink.icon | icon}}</span>
+                <span class="text-body">{{quickNavLink.link.linkText}}</span>
+            </a>
+        </div>
+    </div>
+</div>

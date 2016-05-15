@@ -1,0 +1,14 @@
+
+<div id="link-farm" class="row" ng-controller="LinkFarmController">
+    <section class="col-md-8 col-sm-24 col-xs-24 section remove-header-rule item-section" ng-repeat="section in view.sectionList">
+        <header class="section-header">
+            <h3 class="text-title">{{section.header}}</h3>
+        </header>
+        <div id="link-section-{{$index}}">
+            <ul class="list-unstyled landing-section-body">
+                <li ng-repeat="link in section.links"><a id="link-section-{{$parent.$index}}-link-{{$index}}" class="element-tabbable" ng-href="{{link.linkUrl}}" target="_self">{{link.linkText}}</a></li>
+            </ul>
+        </div>
+    </section>
+</div>
+

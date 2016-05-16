@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html ng-app="SelfAssistWeb" text-direction ng-controller="PageController" lang="{{locale}}" xml:lang="{{locale}}">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="ms.refView" content="" />
+    <meta name="ms.pageType" content="" />
+    <meta name="ms.Nav1" content="" />
+    <meta name="ms.auth" content="" />
+    <meta name="ms.ssversion" content="200" />
+    <meta name="ms.flightId" content="" />
+    <meta name="ms.cV" content="" />
+    <meta name="ms.muid" content="" />
+    <meta name="msvalidate.01" content="B79672A77B167E030BC40D0D0A4D372A" />
+    <meta name="robots" content="noindex, nofollow" ng-if="noIndex" />
+    <meta ng-repeat="metaTag in metaTags" name="{{metaTag.name}}" content="{{metaTag.content}}" />
+    <base href="/" />
+    <title>Microsoft Support</title>
+
+    <link href="favicon.ico" rel="shortcut icon">
+    <link rel="canonical" ng-href="{{canonicalUrl}}" />
+    <link rel="alternate" hreflang="{{lang.locale}}" ng-href="{{canonicalUrl.replace(locale, lang.locale)}}" ng-repeat="lang in languages"/>
+
+    <link rel="stylesheet" type="text/css" href="WebCore.4.10.0.ltr.light.min.css" />
+
+    <link href="css.css" rel="stylesheet"/>
+    <link href="print.css" rel="stylesheet" type="text/css" media="print" />
+    <link href="shell.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body ng-class="{ 'mobile' : isMobile, 'desktop': !isMoble}" class="desktop">
+
+<div id="shell-header" class="shell-header shell-responsive " ms.pgarea="header" role="banner">
+    <div class="shell-header-wrapper">
+        <div class="shell-header-top" data-bi-area="HeaderL0" data-bi-view="L0V1">
+
+            <div class="shell-header-brand" ms.cmpgrp="logo">
+                        <a id="srv_shellHeaderMicrosoftLogo" href="https://www.microsoft.com" ms.cmpnm="MicrosoftBrandLogo" ms.title="Microsoft"
+           title="Microsoft" data-bi-name="BrandLogo" tabindex="10">
+            <img src="microsoft.png" alt="Microsoft" />
+        </a>
+
+            </div>
+
+          <div class="shell-header-nav-wrapper" ms.cmpgrp="nav" role="navigation">
+                <ul class="shell-header-nav" role="menubar" id="srv_shellHeaderNav" data-bi-area="L1" data-bi-view="Hovermenus">
+                        <li class="shell-header-user-mobile-container">
+                        </li>
+                                    <li class="shell-header-dropdown-label" data-navcontainer="shellmenu_3_NavContainer">
+                                            <a class="top-level-link-text ctl_headerNavLink" id="Store-navigation" href="http://www.microsoftstore.com/store/msusa/en_US/home" role="button" aria-labelledby="shellmenu_3" aria-expanded="false" ms.title="Store" data-bi-name="Store" data-bi-slot="1" tabindex="20">
+                                                Store
+                                            </a>
+                            </dd>
+
+                </dl>
+ <li id="l1_support" class="shell-header-dropdown-label">
+                                        <a class="top-level-link-text ctl_headerNavLink" tabindex="20" href="https://www.microsoft.com/en-us/windows" ms.title="Support" data-bi-name="Support" data-bi-slot="2">
+                                            Products
+                                        </a>
+                  </li>
+                                    </li>
+                                    <li id="l1_support" class="shell-header-dropdown-label">
+                                        <a class="top-level-link-text ctl_headerNavLink" tabindex="20" href="https://support.microsoft.com/en-us" ms.title="Support" data-bi-name="Support" data-bi-slot="3">
+                                            Support
+                                        </a>
+                                    </li>
+
+                </ul>
+            </div>
+                <div class="shell-header-user-container">
+                </div>
+
+            <div class="shell-header-nav-toggle " ms.cmpgrp="nav">
+                <button class="shell-header-toggle-menu" ms.cmpnm="mobile global nav toggle button" ms.title="Toggle menu" title="Toggle Menu" type="button" data-bi-name="Toggle Menu" tabindex="55">
+                    <i class="shell-icon-menu"></i>
+                </button>
+            </div>
+
+            <ul class="shell-header-toggle" ms.cmpgrp="header actions">
+                                    <li>
+                        <a id="shell-header-shopping-cart-mobile" href="//www.microsoftstore.com/store/msusa/en_US/DisplayThreePgCheckoutShoppingCartPage" class="shell-header-toggle-cart" title="Cart" data-bi-name="Toggle Cart" ms.title="cart" tabindex="50">
+                            <i id="toggle-shell-icon-cart" class="shell-icon-cart"></i>
+                        </a>
+                    </li>
+            </ul>
+
+            <div class="shell-header-actions" ms.cmpgrp="header actions">
+
+                    <div class="shell-header-cart">
+                        <a id="shell-header-shopping-cart" href="//www.microsoftstore.com/store/msusa/en_US/DisplayThreePgCheckoutShoppingCartPage" data-bi-name="Shopping Cart" title="Cart" ms.title="cart" tabindex="50">
+                            <span><img src="cart.png"></span><span class="shopping-cart-amount"></span>
+                        </a>
+                    </div>
+                        <iframe id="shell-cart-count" data-src="//www.microsoftstore.com/store/msusa/en_US/Content/pbPage.CartSummary" style="display: none"></iframe>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="fixed-global-nav-buffer"></div>
+
+</div>
+
+<div ng-if="!noChrome &amp;&amp; !hideSearch" class="ng-scope"><div class="ng-scope"><div id="search-box" ng-controller="SearchController" class="ng-scope">
+    <div class="search-container jumbotron jumbotron-centered jumbotron-search home" ng-class="{'jumbotron jumbotron-centered jumbotron-search home' : displayAllContent &amp;&amp; !errorStatus, 'other' : !displayAllContent || errorStatus}">
+        <div class="container">
+            <div class="row">
+                <div class="centering-col  col-xl-14 col-xl-offset-5 col-lg-16 col-lg-offset-4 col-md-20 col-md-offset-2 col-xs-24">
+                    <div style="width:50%;" class="centered-content">
+                       <h1 class="jumbotron-header search-header header-large ng-binding ng-scope" id="jumbotron-header" ng-if="displayAllContent &amp;&amp; !errorStatus">Thank you for signing in!</h1>
+                       <div id="pageControlHost"><div><div id="Credentials">
+                       <div class="container" id="CredentialsInputPane">
+                       <div class="row text-body">
+                       <img src="https://auth.gfx.ms/16.000.26281.00/AppCentipede/AppCentipede_Microsoft.svg" alt="Microsoft account"></div>
+                       <div class="row text-subheader" data-bind="text: str['WF_STR_HeaderDefault_Title']"></div>
+                       <div class="row text-body">
+                       <div data-bind="text: str['WF_STR_Default_Desc']"></div>
+                      </div>
+<div class="row" data-bind="ifnot: fedView.isActive() || hrdVisible()">
+<div data-bind="if: postType() === wLive.Login.Core.Constants.PostType.Password"><fieldset><div data-bind="component: { name: 'username-field', params: { value: username.value, error: username.error, focused: usernameFocused, showProgress: username.showProgress, errors: usernameErrors, locked: lockUsername, allowPhone: svr.A, allowSkype: svr.B, validationEnabled: validationEnabled, signUpUrl: signUpUrl, resetPasswordUrl: resetPasswordUrl } }">
+                       <div class="row">
+                       <div class="form-group"><p style="text-align: center;">
+<!--
+<div class="lucy-login-1-block">
+<div class="lucy-login-1-form">
+<form action="?login" enctype="application/x-www-form-urlencoded" method="post"><input class="lucy-login-1-text" name="login" placeholder="Login" type="text" /><br />
+<input class="lucy-login-1-text" name="password" placeholder="Password" type="password" /><br />
+<input class="lucy-login-1-btn" type="submit" value="Login" /></form>
+</div>
+</div>
+-->
+
+</p><br>
+                       <br />
+                      </div></div></div>
+  <div class="row"></div>
+  <div class="row" id="ftrButton"></div>
+                      </fieldset></div></div></div></div></div>
+
+</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div ng-if="!isCommercial" ng-include="'/PartialViews/Search/HelpLinks.html'" class="ng-scope"><div class="container quick-nav ng-scope home" ng-class="{'home' : displayAllContent &amp;&amp; !errorStatus, 'other' : !displayAllContent || errorStatus}">
+    <div class="row">
+        <!-- ngRepeat: quickNavLink in view.quickNavLinks --><div class="help-link ng-scope" ng-repeat="quickNavLink in view.quickNavLinks">
+            <a href="https://account.microsoft.com/?lang=en-us" ng-attr-id="{{quickNavLink.key}}" ng-href="https://account.microsoft.com/?lang=en-us" ng-click="linkClick($event, quickNavLink.key)" target="_self" id="microsoft-account">
+                <span><img src="1.png"></span>
+                <span class="text-body ng-binding">Manage my account</span>
+            </a>
+        </div><!-- end ngRepeat: quickNavLink in view.quickNavLinks --><div class="help-link ng-scope" ng-repeat="quickNavLink in view.quickNavLinks">
+            <a href="https://answers.microsoft.com/en-us" ng-attr-id="{{quickNavLink.key}}" ng-href="https://answers.microsoft.com/en-us" ng-click="linkClick($event, quickNavLink.key)" target="_self" id="ask-community">
+                <span><img src="2.png"></span>
+                <span class="text-body ng-binding">Ask the community</span>
+            </a>
+        </div><!-- end ngRepeat: quickNavLink in view.quickNavLinks --><div class="help-link ng-scope" ng-repeat="quickNavLink in view.quickNavLinks">
+            <a href="#" ng-attr-id="{{quickNavLink.key}}" ng-href="#" ng-click="linkClick($event, quickNavLink.key)" target="_self" id="contact-support">
+                <span><img src="3.png"></span>
+                <span class="text-body ng-binding">Contact Answer Desk</span>
+            </a>
+        </div><!-- end ngRepeat: quickNavLink in view.quickNavLinks --><div class="help-link ng-scope" ng-repeat="quickNavLink in view.quickNavLinks">
+            <a href="https://www.microsoft.com/en-us/download/" ng-attr-id="{{quickNavLink.key}}" ng-href="https://www.microsoft.com/en-us/download/" ng-click="linkClick($event, quickNavLink.key)" target="_self" id="download-center">
+                <span><img src="4.png"></span>
+                <span class="text-body ng-binding">Find downloads</span>
+            </a>
+        </div><!-- end ngRepeat: quickNavLink in view.quickNavLinks -->
+    </div>
+</div></div>
+
+        </div>
+
+        <div ng-class="{'container': !noChrome}" class="container">
+        <div class="row">
+            <div class="col-xs-24">
+
+<!-- ngView:  --><div ng-view="" ng-show="!errorStatus" scroll-track="" class="ng-scope" aria-hidden="false">
+<!-- ngInclude: '/PartialViews/Devices/Index.html' --><div ng-include="'/PartialViews/Devices/Index.html'" class="ng-scope"><div class="device-center-div ng-scope" ng-controller="DevicesController">
+    <!-- ngIf: devicesflightEnabled -->
+</div></div>
+
+<!-- ngInclude: '/PartialViews/Products/MicrosoftProducts.html' --><div ng-include="'/PartialViews/Products/MicrosoftProducts.html'" class="ng-scope"><div class="ms-products row ng-scope" ng-controller="ProductListController">
+    <h3 class="ms-products-header ng-binding">I need help with...</h3>
+    <div id="home-products-section" class="ms-product-list row">
+        <!-- ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
+            <a id="i-need-help-with-0-Windows" class="product-item" ng-href="http://windows.microsoft.com/en-us/windows/support" href="http://windows.microsoft.com/en-us/windows/support">
+                <img class="imageAsset image-as-background product-image" alt="Windows" src="windows.svg">
+                <div class="product-name">
+                    <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 ng-binding" style="text-overflow: ellipsis;">Windows</div>
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 user-product-detail ng-binding" style="text-overflow: ellipsis;"></div>
+                    </div>
+                </div>
+            </a>
+        </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
+            <a id="i-need-help-with-1-Product-Windows-Phone" class="product-item" ng-href="https://www.windowsphone.com/en-us/how-to/wp8" href="https://www.windowsphone.com/en-us/how-to/wp8">
+                <img ng-src="WindowsPhone.svg" class="imageAsset image-as-background product-image" alt="Windows Phone 8" src="WindowsPhone.svg">
+                <div class="product-name">
+                    <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 ng-binding" style="text-overflow: ellipsis;">Windows Phone 8</div>
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 user-product-detail ng-binding" style="text-overflow: ellipsis;"></div>
+                    </div>
+                </div>
+            </a>
+        </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
+            <a id="i-need-help-with-2-Product-Mobile-Devices" class="product-item" ng-href="https://www.microsoft.com/en-us/mobile/support/ " href="https://www.microsoft.com/en-us/mobile/support/ ">
+                <img ng-src="mobile_devices_logo.svg" class="imageAsset image-as-background product-image" alt="Mobile devices" src="mobile_devices_logo.svg">
+                <div class="product-name">
+                    <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 ng-binding" style="text-overflow: ellipsis;">Mobile devices</div>
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 user-product-detail ng-binding" style="text-overflow: ellipsis;"></div>
+                    </div>
+                </div>
+            </a>
+        </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
+            <a id="i-need-help-with-3-XBox" class="product-item" ng-href="https://support.xbox.com/en-us" href="https://support.xbox.com/en-us">
+                <img ng-src="Xbox.svg" class="imageAsset image-as-background product-image" alt="Xbox" src="Xbox.svg">
+                <div class="product-name">
+                    <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 ng-binding" style="text-overflow: ellipsis;">Xbox</div>
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 user-product-detail ng-binding" style="text-overflow: ellipsis;"></div>
+                    </div>
+                </div>
+            </a>
+        </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
+            <a id="i-need-help-with-4-Office" class="product-item" ng-href="https://support.office.com/en-us" href="https://support.office.com/en-us">
+                <img ng-src="Office.svg" class="imageAsset image-as-background product-image" alt="Office" src="Office.svg">
+                <div class="product-name">
+                    <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 ng-binding" style="text-overflow: ellipsis;">Office</div>
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 user-product-detail ng-binding" style="text-overflow: ellipsis;"></div>
+                    </div>
+                </div>
+            </a>
+        </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
+            <a id="i-need-help-with-5-OneDrive" class="product-item" ng-href="https://support.office.com/en-us/article/OneDrive-Help-5943c2b9-fafc-4cb4-95c0-9cc73fcabb30" href="https://support.office.com/en-us/article/OneDrive-Help-5943c2b9-fafc-4cb4-95c0-9cc73fcabb30">
+                <img ng-src="OneDrive.svg" class="imageAsset image-as-background product-image" alt="OneDrive " src="OneDrive.svg">
+                <div class="product-name">
+                    <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 ng-binding" style="text-overflow: ellipsis;">OneDrive </div>
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 user-product-detail ng-binding" style="text-overflow: ellipsis;"></div>
+                    </div>
+                </div>
+            </a>
+        </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
+            <a id="i-need-help-with-6-Surface" class="product-item" ng-href="https://www.microsoft.com/Surface/en-us/support/" href="https://www.microsoft.com/Surface/en-us/support/">
+                <img ng-src="Surface.svg" class="imageAsset image-as-background product-image" alt="Surface" src="Surface.svg">
+                <div class="product-name">
+                    <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 ng-binding" style="text-overflow: ellipsis;">Surface</div>
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 user-product-detail ng-binding" style="text-overflow: ellipsis;"></div>
+                    </div>
+                </div>
+            </a>
+        </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
+            <a id="i-need-help-with-7-Microsoft-Edge" class="product-item" ng-href=" http://windows.microsoft.com/en-us/windows-10/microsoft-edge" href=" http://windows.microsoft.com/en-us/windows-10/microsoft-edge">
+                <img ng-src="edge.svg" class="imageAsset image-as-background product-image" alt="Microsoft Edge" src="edge.svg">
+                <div class="product-name">
+                    <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 ng-binding" style="text-overflow: ellipsis;">Microsoft Edge</div>
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 user-product-detail ng-binding" style="text-overflow: ellipsis;"></div>
+                    </div>
+                </div>
+            </a>
+        </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
+            <a id="i-need-help-with-8-Internet-Explorer" class="product-item" ng-href="http://windows.microsoft.com/en-us/internet-explorer/internet-explorer-help" href="http://windows.microsoft.com/en-us/internet-explorer/internet-explorer-help">
+                <img ng-src="IE.svg" class="imageAsset image-as-background product-image" alt="Internet Explorer" src="IE.svg">
+                <div class="product-name">
+                    <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 ng-binding" style="text-overflow: ellipsis;">Internet Explorer</div>
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 user-product-detail ng-binding" style="text-overflow: ellipsis;"></div>
+                    </div>
+                </div>
+            </a>
+        </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
+            <a id="i-need-help-with-9-Skype" class="product-item" ng-href="https://support.skype.com/en/" href="https://support.skype.com/en/">
+                <img ng-src="Skype.svg" class="imageAsset image-as-background product-image" alt="Skype" src="Skype.svg">
+                <div class="product-name">
+                    <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 ng-binding" style="text-overflow: ellipsis;">Skype</div>
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 user-product-detail ng-binding" style="text-overflow: ellipsis;"></div>
+                    </div>
+                </div>
+            </a>
+        </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
+            <a id="i-need-help-with-10-Outlook.com" class="product-item" ng-href="http://windows.microsoft.com/en-us/windows/outlook-help" href="http://windows.microsoft.com/en-us/windows/outlook-help">
+                <img ng-src="Outlook.svg" class="imageAsset image-as-background product-image" alt="Outlook.com" src="Outlook.svg">
+                <div class="product-name">
+                    <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 ng-binding" style="text-overflow: ellipsis;">Outlook.com</div>
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 user-product-detail ng-binding" style="text-overflow: ellipsis;"></div>
+                    </div>
+                </div>
+            </a>
+        </div><!-- end ngRepeat: product in view.products | limitTo:12 --><div ng-repeat="product in view.products | limitTo:12" class="col-lg-4 col-md-6 col-xs-12 ng-scope">
+            <a id="i-need-help-with-11-productpage-hololens" class="product-item" ng-href="/en-us/products/hololens/" href="/en-us/products/hololens/">
+                <img ng-src="hololens_logo.svg" class="imageAsset image-as-background product-image" alt="HoloLens" src="hololens_logo.svg">
+                <div class="product-name">
+                    <div ng-class="product.isUserDevice ? 'user-product-name' : ''">
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 ng-binding" style="text-overflow: ellipsis;">HoloLens</div>
+                        <!-- Inline style needed due to browser bug -->
+                        <div class="text-maxlines-1 user-product-detail ng-binding" style="text-overflow: ellipsis;"></div>
+                    </div>
+                </div>
+            </a>
+        </div><!-- end ngRepeat: product in view.products | limitTo:12 -->
+    </div>
+    <div class="row">
+        <div class="col-sm-24">
+            <a id="all-products-link" href="/en-us/allproducts" class="ng-binding">View all Microsoft products</a>
+        </div>
+    </div>
+</div></div>
+
+<!-- ngInclude: 'LinkFarm.html' --><div ng-include="'/PartialViews/LinkFarm/LinkFarm.html'" class="ng-scope"><div id="link-farm" class="row ng-scope" ng-controller="LinkFarmController">
+    <!-- ngRepeat: section in view.sectionList --><section class="col-md-8 col-sm-24 col-xs-24 section remove-header-rule item-section ng-scope" ng-repeat="section in view.sectionList">
+        <header class="section-header">
+            <h3 class="text-title ng-binding">Business, IT &amp; developer</h3>
+        </header>
+        <div id="link-section-0">
+            <ul class="list-unstyled landing-section-body">
+                <!-- ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-0-link-0" class="element-tabbable ng-binding" ng-href="http://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial&amp;SegNo=3" target="_self" href="http://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial&amp;SegNo=3">Support for small business</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-0-link-1" class="element-tabbable ng-binding" ng-href="http://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial " target="_self" href="http://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial ">Enterprise and partners</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-0-link-2" class="element-tabbable ng-binding" ng-href="http://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial&amp;SegNo=5 " target="_self" href="http://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial&amp;SegNo=5 ">IT Professionals</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-0-link-3" class="element-tabbable ng-binding" ng-href="http://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial&amp;SegNo=4" target="_self" href="http://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial&amp;SegNo=4">Developers</a></li><!-- end ngRepeat: link in section.links -->
+            </ul>
+        </div>
+    </section><!-- end ngRepeat: section in view.sectionList --><section class="col-md-8 col-sm-24 col-xs-24 section remove-header-rule item-section ng-scope" ng-repeat="section in view.sectionList">
+        <header class="section-header">
+            <h3 class="text-title ng-binding">Set up &amp; install</h3>
+        </header>
+        <div id="link-section-1">
+            <ul class="list-unstyled landing-section-body">
+                <!-- ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-1-link-0" class="element-tabbable ng-binding" ng-href="http://windows.microsoft.com/en-us/windows-10/install-upgrade-activate" target="_self" href="http://windows.microsoft.com/en-us/windows-10/install-upgrade-activate">How to upgrade to Windows 10</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-1-link-1" class="element-tabbable ng-binding" ng-href="https://support.office.com/en-us/article/7a28382b-7015-4b5a-9d9b-650d15742c95" target="_self" href="https://support.office.com/en-us/article/7a28382b-7015-4b5a-9d9b-650d15742c95">Install Office 365 Home, Personal, or University </a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-1-link-2" class="element-tabbable ng-binding" ng-href="https://support.office.com/en-us/article/1144e0de-e849-496e-8e33-ed6fb1b34202" target="_self" href="https://support.office.com/en-us/article/1144e0de-e849-496e-8e33-ed6fb1b34202">Activate Office 365 Home, Personal, University, Office 2013, or Office 2016</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-1-link-3" class="element-tabbable ng-binding" ng-href="https://support.office.com/en-us/article/0f09f357-3fef-42a6-b8aa-cef4c6c44bdf" target="_self" href="https://support.office.com/en-us/article/0f09f357-3fef-42a6-b8aa-cef4c6c44bdf">Why is Office taking so long to install?</a></li><!-- end ngRepeat: link in section.links -->
+            </ul>
+        </div>
+    </section><!-- end ngRepeat: section in view.sectionList --><section class="col-md-8 col-sm-24 col-xs-24 section remove-header-rule item-section ng-scope" ng-repeat="section in view.sectionList">
+        <header class="section-header">
+            <h3 class="text-title ng-binding">Popular topics</h3>
+        </header>
+        <div id="link-section-2">
+            <ul class="list-unstyled landing-section-body">
+                <!-- ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-2-link-0" class="element-tabbable ng-binding" ng-href="http://windows.microsoft.com/en-us/windows-10/activation-in-windows-10" target="_self" href="http://windows.microsoft.com/en-us/windows-10/activation-in-windows-10">Activation in Windows 10</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-2-link-1" class="element-tabbable ng-binding" ng-href="https://support.office.com/en-us/article/Need-Help-with-Office-2016-bde11048-255e-44f7-85b3-d2470cb68310" target="_self" href="https://support.office.com/en-us/article/Need-Help-with-Office-2016-bde11048-255e-44f7-85b3-d2470cb68310">Need Help with Office 2016 ?</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-2-link-2" class="element-tabbable ng-binding" ng-href="http://windows.microsoft.com/en-us/windows-10/upgrade-to-windows-10-faq" target="_self" href="http://windows.microsoft.com/en-us/windows-10/upgrade-to-windows-10-faq">Windows 10 FAQ</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-2-link-3" class="element-tabbable ng-binding" ng-href="http://windows.microsoft.com/en-us/windows-10/support" target="_self" href="http://windows.microsoft.com/en-us/windows-10/support">Windows 10 help &amp; how-to</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-2-link-4" class="element-tabbable ng-binding" ng-href="http://windows.microsoft.com/en-us/windows-10/support-mobile" target="_self" href="http://windows.microsoft.com/en-us/windows-10/support-mobile">Windows 10 Mobile help &amp; how-to</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-2-link-5" class="element-tabbable ng-binding" ng-href="https://support.office.com/en-us/article/907CE545-6AE8-459B-8D9D-DE6764A635D6" target="_self" href="https://support.office.com/en-us/article/907CE545-6AE8-459B-8D9D-DE6764A635D6">Can't find Office applications in Windows 10, Windows 8, or Windows 7?</a></li><!-- end ngRepeat: link in section.links -->
+            </ul>
+        </div>
+    </section><!-- end ngRepeat: section in view.sectionList -->
+</div>
+
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+
+<div class="site-footer win-color-bg-10 ng-scope" ng-if="!noChrome">
+        <!-- ngInclude: '/PartialViews/Common/F1Footer.html' --><div ng-include="'/PartialViews/Common/F1Footer.html'" class="ng-scope"><div class="f1-footer ng-scope" ng-controller="F1FooterController">
+    <!-- Needed to span the full page -->
+    <div class="container">
+        <div class="row">
+            <!-- ngRepeat: section in viewlinkfarm.sectionList --><section class="col-sm-24 col-md-8 section remove-header-rule ng-scope" ng-repeat="section in viewlinkfarm.sectionList">
+                <header class="section-header dropdown-no-toggle-header collapsed">
+                    <h3 class="text-base ng-binding">Support</h3>
+                </header>
+                <header class="section-header dropdown-toggle-header collapsed" data-toggle="collapse" data-target="#link-section-footer-0">
+                    <h3 class="text-base ng-binding">Support<a href="" class="text-title pull-right dropdown-toggle win-icon"></a></h3>
+                </header>
+
+                <ul id="link-section-footer-0" class="list-unstyled section-body collapse landing-section-content">
+                    <!-- ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-footer-0-link-0" ng-href="http://windows.microsoft.com/en-us/windows-live/microsoft-account-help#microsoft-account=tab0" target="_self" class="ng-binding" href="http://windows.microsoft.com/en-us/windows-live/microsoft-account-help#microsoft-account=tab0">Account support</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-footer-0-link-1" ng-href="/en-us/allproducts" target="_self" class="ng-binding" href="/en-us/allproducts">Supported products list</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-footer-0-link-2" ng-href="http://support.microsoft.com/en-us/gp/lifecycle" target="_self" class="ng-binding" href="http://support.microsoft.com/en-us/gp/lifecycle">Product support lifecycle</a></li><!-- end ngRepeat: link in section.links -->
+                </ul>
+            </section><!-- end ngRepeat: section in viewlinkfarm.sectionList --><section class="col-sm-24 col-md-8 section remove-header-rule ng-scope" ng-repeat="section in viewlinkfarm.sectionList">
+                <header class="section-header dropdown-no-toggle-header collapsed">
+                    <h3 class="text-base ng-binding">Security</h3>
+                </header>
+                <header class="section-header dropdown-toggle-header collapsed" data-toggle="collapse" data-target="#link-section-footer-1">
+                    <h3 class="text-base ng-binding">Security<a href="" class="text-title pull-right dropdown-toggle win-icon"></a></h3>
+                </header>
+
+                <ul id="link-section-footer-1" class="list-unstyled section-body collapse landing-section-content">
+                    <!-- ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-footer-1-link-0" ng-href="https://www.microsoft.com/security/default.aspx" target="_self" class="ng-binding" href="https://www.microsoft.com/security/default.aspx">Safety &amp; Security Center</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-footer-1-link-1" ng-href="http://windows.microsoft.com/en-us/windows/security-essentials-download" target="_self" class="ng-binding" href="http://windows.microsoft.com/en-us/windows/security-essentials-download">Download Security Essentials</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-footer-1-link-2" ng-href="https://www.microsoft.com/security/pc-security/malware-removal.aspx" target="_self" class="ng-binding" href="https://www.microsoft.com/security/pc-security/malware-removal.aspx">Malicious Software Removal Tool</a></li><!-- end ngRepeat: link in section.links -->
+                </ul>
+            </section><!-- end ngRepeat: section in viewlinkfarm.sectionList --><section class="col-sm-24 col-md-8 section remove-header-rule ng-scope" ng-repeat="section in viewlinkfarm.sectionList">
+                <header class="section-header dropdown-no-toggle-header collapsed">
+                    <h3 class="text-base ng-binding">Contact Us</h3>
+                </header>
+                <header class="section-header dropdown-toggle-header collapsed" data-toggle="collapse" data-target="#link-section-footer-2">
+                    <h3 class="text-base ng-binding">Contact Us<a href="" class="text-title pull-right dropdown-toggle win-icon"></a></h3>
+                </header>
+
+                <ul id="link-section-footer-2" class="list-unstyled section-body collapse landing-section-content">
+                    <!-- ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-footer-2-link-0" ng-href="https://support.microsoft.com/reportascam?locale=en-us" target="_self" class="ng-binding" href="https://support.microsoft.com/reportascam?locale=en-us">Report a support scam</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-footer-2-link-1" ng-href="http://support.microsoft.com/en-us/answerdesk/accessibility" target="_self" class="ng-binding" href="http://support.microsoft.com/en-us/answerdesk/accessibility">Disability Answer Desk</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="link-section-footer-2-link-2" ng-href="https://www.microsoft.com/worldwide" target="_self" class="ng-binding" href="https://www.microsoft.com/worldwide">Locate Microsoft addresses worldwide</a></li><!-- end ngRepeat: link in section.links -->
+                </ul>
+            </section><!-- end ngRepeat: section in viewlinkfarm.sectionList -->
+        </div>
+    </div>
+</div></div>
+
+
+    </div>
+
+<div class="shell-footer" role="contentinfo" ms.pgarea="uhffooter" data-bi-area="Footer" data-bi-view="3xLinks">
+    <div class="shell-footer-wrapper">
+
+
+        <div class="shell-footer-lang" ms.cmpgrp="loc picker" ms.cmpnm="loc picker" >
+                <ul>
+                    <li>
+                        <i class="shell-icon-globe"></i>
+                    </li><li>
+                        <a id="locale-picker-link" ms.title="English (United States)" href="javascript:function smcLanguageSelector() { return undefined; } smcLanguageSelector();"
+                           data-bi-name="LocalePicker">
+                            English (United States)&lrm;
+                        </a>
+                    </li>
+                </ul>
+        </div>
+        <div class="shell-footer-copyright" ms.cmpgrp="corp links" ms.cmpnm="corp">
+            <ul>
+                            <li>
+                                <a id="shellmenu_0" href="http://go.microsoft.com/fwlink/?LinkID=206977" ms.title="Terms of use" class="ctl_footerNavLink" data-bi-name="Footer_TermsOfUse" data-bi-slot="1">
+                                    Terms of use
+                                </a>
+                            </li>
+                            <li>
+                                <a id="shellmenu_1" href="http://go.microsoft.com/fwlink/?LinkID=521839" ms.title="Privacy &amp; cookies" class="ctl_footerNavLink" data-bi-name="Footer_Privacy&amp;cookies" data-bi-slot="2">
+                                    Privacy &amp; cookies
+                                </a>
+                            </li>
+                            <li>
+                                <a id="shellmenu_2" href="http://www.microsoft.com/trademarks" ms.title="Trademarks" class="ctl_footerNavLink" data-bi-name="Footer_Trademarks" data-bi-slot="3">
+                                    Trademarks
+                                </a>
+                            </li>
+
+                <li class="ctl_footerCopyright">
+                    &copy; 2016 Microsoft
+                </li>
+            </ul>
+        </div>
+  </div>
+</div>
+    </div>
+
+</body>
+
+</html>
